@@ -48,6 +48,7 @@ def get_question():
 def main():
     count = 0
     good_answer = 0
+    my_points = 0
     print("Игра начинается!")
     while count != 5:
 
@@ -58,7 +59,7 @@ def main():
         p.build_question(quest[0], quest[1])
         user_response = input('Ответ: ')
         if user_response == str(quest[2]):
-            p.build_positive_feedback(10)
+            my_points += 10
             good_answer += 1
         else:
             p.build_negative_feedback(quest[2])
