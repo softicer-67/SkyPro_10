@@ -16,6 +16,7 @@ class Question:
 
     def is_correct(self, user_response, correct_answer):
         if user_response == correct_answer:
+            self.correct_answer += 1
             return self.build_positive_feedback(self.points)
         else:
             return self.build_negative_feedback(self.correct_answer)
@@ -53,14 +54,16 @@ def main():
         p = Question(quest[0], quest[1], quest[2])
 
         p.build_question(quest[0], quest[1])
-        user_input = str(input('Ответ: '))
+        user_input = input('Ответ: ')
         if user_input == str(quest[2]):
             p.build_positive_feedback(10)
+            a = p.is_correct
+            b = p.points
         else:
             p.build_negative_feedback(quest[2])
         count += 1
 
-    print(f"Вот и все!\nОтвечено на {Question.is_correct} вопроса из {Question.get_points}\nНабранно {Question.get_points} баллов")
+    print(f"Вот и все!\nОтвечено на {a} вопроса из {count}\nНабранно {b} баллов")
 
 
 if __name__ == '__main__':
