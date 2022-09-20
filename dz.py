@@ -54,8 +54,6 @@ def main():
 
         quest = get_question()
         p = Question(quest[0], quest[1], quest[2])
-        my_points = p.get_points()
-
         p.build_question(quest[0], quest[1])
         user_response = input('Ответ: ')
         if user_response == str(quest[2]):
