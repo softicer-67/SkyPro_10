@@ -55,7 +55,7 @@ def main():
         p.build_question(quest[0], quest[1])
         user_input = str(input('Ответ: '))
         if user_input == str(quest[2]):
-            p.build_positive_feedback(p.get_points())
+            p.build_positive_feedback(10)
         else:
             p.build_negative_feedback(quest[2])
         count += 1
