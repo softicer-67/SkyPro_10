@@ -1,4 +1,3 @@
-import random
 import secrets
 
 
@@ -58,7 +57,6 @@ def main():
         p = Question(quest[0], quest[1], quest[2])
         p.build_question(quest[0], quest[1])
         user_response = input('Ответ: ')
-        print('До', p.get_points())
         if user_response == str(quest[2]):
             p.is_correct(user_response, str(quest[2]))
             good_answer += 1
