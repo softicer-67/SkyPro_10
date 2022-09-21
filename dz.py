@@ -20,7 +20,7 @@ def get_question(txt_quest):
 def main():
     all_txt = get_json()
     count = 0
-    my_points = 0
+    my_points = []
     quest = get_question(all_txt)
     print("Игра начинается!")
     for i in quest:
@@ -29,10 +29,10 @@ def main():
         i.user_response = answer
         print(i.build_feedback())
         if i.asked_the_question is True:
-            my_points += i.get_points()
+            my_points.append(i.get_points())
         count += 1
 
-    print(f"Вот и все!\nОтвечено на {sum(i.asked_the_question for i in quest)} вопроса из {len(quest)}\nНабранно {my_points} баллов")
+    print(f"Вот и все!\nОтвечено на {len(my_points)} вопроса из {len(quest)}\nНабранно {sum(list(my_points))} баллов")
 
 
 if __name__ == '__main__':
